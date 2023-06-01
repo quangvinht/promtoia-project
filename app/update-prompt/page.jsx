@@ -43,7 +43,8 @@ const UpdatePrompt = () => {
       });
 
       if (response.ok) {
-        router.push("/");
+        //router.push("/");
+        router.push("/", null, { shallow: false });
       }
     } catch (error) {
       console.log(error);

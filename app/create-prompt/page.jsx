@@ -28,7 +28,9 @@ const CreatePrompt = () => {
       });
 
       if (response.ok) {
-        router.push("/");
+        // router.push("/");
+
+        router.push("/", null, { shallow: false });
       }
     } catch (error) {
       console.log(error);
@@ -39,7 +41,7 @@ const CreatePrompt = () => {
 
   return (
     <Form
-      type='Create'
+      type="Create"
       post={post}
       setPost={setPost}
       submitting={submitting}
