@@ -36,9 +36,9 @@ const Feed = () => {
     fetchPosts();
   }, []);
 
-  //filter post by tag username prompt
-  const filterPrompts = (searchtext) => {
-    const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+  //filter post by tag or username or prompt
+  const filterPrompts = (searchValue) => {
+    const regex = new RegExp(searchValue, "i"); // 'i' flag for case-insensitive search
     return allPosts.filter(
       (item) =>
         regex.test(item.creator.username) ||
@@ -46,6 +46,7 @@ const Feed = () => {
         regex.test(item.prompt)
     );
   };
+  //handle search input :
 
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
@@ -59,9 +60,12 @@ const Feed = () => {
     );
   };
 
+  //
   const handleTagClick = (tag) => {
-    setSearchText(tag);
-    setSearchedResults(filterPrompts(tag));
+    setSearchText(tagName);
+
+    const searchResult = filterPrompts(tagName);
+    setSearchedResults(searchResult);
   };
 
   return (
