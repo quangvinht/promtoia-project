@@ -19,7 +19,6 @@ const PromptCardList = ({ data, handleTagClick }) => {
 };
 
 const Feed = () => {
-  window.location.reload();
   const [allPosts, setAllPosts] = useState([]);
 
   // Search states

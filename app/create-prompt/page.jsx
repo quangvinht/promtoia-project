@@ -29,6 +29,7 @@ const CreatePrompt = () => {
 
       if (response.ok) {
         router.push("/");
+        router.reload();
       }
     } catch (error) {
       console.log(error);
