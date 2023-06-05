@@ -52,8 +52,8 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <>
-            {providers &&
+          <div className="flex sm:flex-col md:flex-row">
+            {/* {providers &&
               Object.values(providers).map((provider) => {
                 return (
                   <button
@@ -62,17 +62,53 @@ const Navbar = () => {
                     onClick={() => {
                       signIn(provider.id);
                     }}
-                    className="black_btn"
+                    className={` mx-1 ${session ? "hidden" : "black_btn"} `}
                   >
-                    Sign In
+                    Sign In with {provider.name}
                   </button>
                 );
-              })}
-          </>
+              })} */}
+            {providers?.facebook && (
+              <button
+                type="button"
+                onClick={() => {
+                  signIn("facebook");
+                }}
+                className={` mx-1  flex items-center black_btn  `}
+              >
+                Sign In with
+                <Image
+                  src="assets/icons/facebook.svg"
+                  width={20}
+                  height={20}
+                  alt="loader"
+                  className="object-contain ml-1"
+                />
+              </button>
+            )}
+            {providers?.google && (
+              <button
+                type="button"
+                onClick={() => {
+                  signIn("google");
+                }}
+                className={` mx-1  flex items-center black_btn  `}
+              >
+                Sign In with
+                <Image
+                  src="assets/icons/google.svg"
+                  width={20}
+                  height={20}
+                  alt="loader"
+                  className="object-contain ml-1"
+                />
+              </button>
+            )}
+          </div>
         )}
       </div>
       {/* Mobile navigation */}
-      <div className="sm:hidden flex relative">
+      <div className="sm:hidden flex relative ">
         {session?.user ? (
           <div className="flex">
             <Image
@@ -120,8 +156,8 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <>
-            {providers &&
+          <div className="flex flex-col md:flex-row">
+            {/* {providers &&
               Object.values(providers).map((provider) => {
                 return (
                   <button
@@ -130,13 +166,49 @@ const Navbar = () => {
                     onClick={() => {
                       signIn(provider.id);
                     }}
-                    className="black_btn"
+                    className="black_btn my-1 md:my-0"
                   >
-                    Sign In
+                    Sign In with {provider.name}
                   </button>
                 );
-              })}
-          </>
+              })} */}
+            {providers?.facebook && (
+              <button
+                type="button"
+                onClick={() => {
+                  signIn("facebook");
+                }}
+                className={` mx-1 mb-2  flex items-center black_btn  `}
+              >
+                Sign In with
+                <Image
+                  src="assets/icons/facebook.svg"
+                  width={20}
+                  height={20}
+                  alt="loader"
+                  className="object-contain ml-1"
+                />
+              </button>
+            )}
+            {providers?.google && (
+              <button
+                type="button"
+                onClick={() => {
+                  signIn("google");
+                }}
+                className={` mx-1  flex items-center black_btn  `}
+              >
+                Sign In with
+                <Image
+                  src="assets/icons/google.svg"
+                  width={20}
+                  height={20}
+                  alt="loader"
+                  className="object-contain ml-1"
+                />
+              </button>
+            )}
+          </div>
         )}
       </div>
     </nav>

@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 
 import User from "@models/user";
 import { connectToDB } from "@utils/database";
@@ -9,6 +10,10 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_ID,
+      clientSecret: process.env.FACEBOOK_SECRET,
     }),
   ],
   callbacks: {
@@ -31,7 +36,7 @@ const handler = NextAuth({
           await User.create({
             email: profile.email,
             username: profile.name.replace(" ", "").toLowerCase(),
-            image: profile.picture,
+            image: profile?.picture?.data?.url || profile.picture,
           });
         }
 

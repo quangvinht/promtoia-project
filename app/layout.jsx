@@ -6,6 +6,7 @@ import Navbar from "@components/Navbar";
 export const metadata = {
   title: "Promptopia",
   description: "Discover & Share AI Prompts",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 const RootLayout = ({ children }) => (
