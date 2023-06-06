@@ -61,7 +61,7 @@ const Feed = () => {
   };
 
   //
-  const handleTagClick = (tag) => {
+  const handleTagClick = (tagName) => {
     setSearchText(tagName);
 
     const searchResult = filterPrompts(tagName);
